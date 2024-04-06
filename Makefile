@@ -9,7 +9,7 @@ venv:
 		venv/bin/pip install --editable ".[dev]"
 
 run: venv
-	venv/bin/flask --app bhs_cadences --debug run
+	venv/bin/flask --app bhs_cadences --debug run --port 8000 
 
 lint: venv
 	venv/bin/flake8 .

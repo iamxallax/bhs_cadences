@@ -21,7 +21,7 @@ Create a new git repo:
 cd bhs_cadences
 git init .
 git add *
-git commit -m "first commit"
+git commit -m "first commit after creating project from cookiecutter-flask-minimal"
 ```
 
 Push to github:
@@ -31,3 +31,9 @@ git branch -M main
 git push -u origin main
 ```
 
+Note that the default port in the cookiecutter template is 5000 which is used by another application on MacOS, so we change the Makefile to use port 8000
+
+```
+run: venv
+	venv/bin/flask --app bhs_cadences --debug run --port 8000 
+```
