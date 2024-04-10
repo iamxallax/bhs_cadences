@@ -1,8 +1,10 @@
 import logging.config
+import os
 
 from flask import Flask
+import click
 
-from bhs_cadences import views
+from bhs_cadences import views, commands
 from bhs_cadences.logging import init_logging
 
 
@@ -17,5 +19,10 @@ def create_app(config_overrides=None):
         app.config.from_mapping(config_overrides)
 
     app.register_blueprint(views.bp)
+    app.register_blueprint(commands.bp)
+
+    for var in ['DATA_DIR']:
+        app.config[var] = os.environ.get(var)
 
     return app
+

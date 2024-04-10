@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>foo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body class="message">
+    <h1>{{ title }}</h1>
+    <p>{{ myvariable }}
+    </p>
+
+    <pre>{{ config }}</pre>
+
+  </body>
+</html>

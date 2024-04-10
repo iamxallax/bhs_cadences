@@ -37,3 +37,52 @@ Note that the default port in the cookiecutter template is 5000 which is used by
 run: venv
 	venv/bin/flask --app bhs_cadences --debug run --port 8000 
 ```
+
+## design ideas
+
+### data storage
+
+- environment variable defining location of the data directory, eg `DATA_DIR=data`
+- in dev, this is relative to the project dir (eg, `bhs_cadences/data`) but is NOT saved to the repo
+- on fly.io, this is a path to the storage volume
+- app adds value of `DATA_DIR` to app.config
+- create dir if not exists
+
+data hierarchy:
+
+- each cadence is represented by a subdirecory of data/, "topsy"
+
+```
+data/
+  topsy/
+  - metadata.json - title, description
+  - everything/
+    - audio.mp3
+    - score.pdf
+    - topsy.mscz
+  - snare/
+    - audio.mp3
+    - score.pdf
+    - topsy.mscz
+  - tenor/
+    - audio.mp3
+    - score.pdf
+    - topsy.mscz  
+  - bass/
+    - audio.mp3
+    - score.pdf
+    - topsy.mscz  
+  - cymbals/
+    - audio.mp3
+    - score.pdf
+    - topsy.mscz  
+
+  
+```
+
+Functions needed:
+
+- List all scores (listAllScores())
+- Get score (getScore())
+- Write score (writeScore())
+
