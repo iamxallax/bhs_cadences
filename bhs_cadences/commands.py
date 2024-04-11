@@ -2,6 +2,7 @@ import json
 import os
 from dataclasses import dataclass
 from pathlib import Path
+import pprint
 
 import click
 from flask import current_app as app
@@ -36,9 +37,12 @@ def create_score(score, title, description=None, author=None, date_added=None):
 @bp.cli.command("list-scores")
 def list_scores():
     scores = get_scores(Path(app.config['DATA_DIR']))
+    pprint.pprint(scores)
+    return
+
     for score in scores:
         print(score.metadata.title)
-        for instrument in score.instruments:
+        for name, instrument in score.instruments.items():
             print(' ', instrument.instrument)
             for file in [instrument.audio, instrument.pdf, instrument.muse_file]:
                 if file is not None:

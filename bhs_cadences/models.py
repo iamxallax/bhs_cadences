@@ -20,4 +20,4 @@ class Instrument:
 @dataclass
 class Score:
     metadata: Metadata
-    instruments: list[Instrument]
+    instruments: dict
