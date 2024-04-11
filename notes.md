@@ -63,31 +63,27 @@ data hierarchy:
 - each cadence is represented by a subdirecory of data/, "topsy"
 
 ```
-data/
-  topsy/
-  - metadata.json - title, description
-  - everything/
-    - audio.mp3
-    - score.pdf
-    - topsy.mscz
-  - snare/
-    - audio.mp3
-    - score.pdf
-    - topsy.mscz
-  - tenor/
-    - audio.mp3
-    - score.pdf
-    - topsy.mscz  
-  - bass/
-    - audio.mp3
-    - score.pdf
-    - topsy.mscz  
-  - cymbals/
-    - audio.mp3
-    - score.pdf
-    - topsy.mscz  
-
-  
+{'topsy': Score(metadata=Metadata(title='Topsy',
+                                  description='Intermediate cadence, very '
+                                              'popular',
+                                  author='Aaron',
+                                  date_added='2014-07-06'),
+                instruments={'bass': Instrument(name='bass',
+                                                audio=None,
+                                                pdf=None,
+                                                muse_file=None),
+                             'cymbals': Instrument(name='cymbals',
+                                                   audio=None,
+                                                   pdf=None,
+                                                   muse_file=None),
+                             'snare': Instrument(name='snare',
+                                                 audio=PosixPath('/Users/xallax/Documents/python/bhs_cadences/data/topsy/snare/audio.mp3'),
+                                                 pdf=PosixPath('/Users/xallax/Documents/python/bhs_cadences/data/topsy/snare/score.pdf'),
+                                                 muse_file=PosixPath('/Users/xallax/Documents/python/bhs_cadences/data/topsy/snare/muse_file.mscz')),
+                             'tenors': Instrument(name='tenors',
+                                                  audio=None,
+                                                  pdf=None,
+                                                  muse_file=None)})}
 ```
 
 Functions needed:

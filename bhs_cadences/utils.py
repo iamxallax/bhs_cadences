@@ -20,7 +20,7 @@ def get_scores(data_dir: Path):
             pdf = folder / Path(instrument) / Path("score.pdf")
             muse_file = folder / Path(instrument) / Path("muse_file.mscz")
             score.instruments[instrument] = Instrument(
-                instrument=instrument, 
+                name=instrument, 
                 audio=audio if audio.is_file() else None, 
                 pdf=pdf if pdf.is_file() else None, 
                 muse_file=muse_file if muse_file.is_file() else None)

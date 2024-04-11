@@ -12,7 +12,7 @@ class Metadata:
 
 @dataclass
 class Instrument:
-    instrument: str
+    name: str
     audio: str #representing path
     pdf: str
     muse_file: str
