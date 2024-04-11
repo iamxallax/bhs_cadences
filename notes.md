@@ -38,6 +38,16 @@ run: venv
 	venv/bin/flask --app bhs_cadences --debug run --port 8000 
 ```
 
+## custom commands
+
+See https://flask.palletsprojects.com/en/3.0.x/cli/#custom-commands
+
+To list custom commands, run 
+
+```
+venv/bin/flask --app bhs_cadences --help
+```
+
 ## design ideas
 
 ### data storage
@@ -86,3 +96,9 @@ Functions needed:
 - Get score (getScore())
 - Write score (writeScore())
 
+Organization:
+
+Dict:
+- topsy (Score object)
+  - snare (Instrument object)
+  
