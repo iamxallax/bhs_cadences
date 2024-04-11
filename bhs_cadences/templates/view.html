@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ballard Cadences</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body class="message">
+      <h1>{{ score.metadata.title }}</h1>
+      {% for instrument_name, instrument in score.instruments.items() %}
+        <h3>{{ instrument.name }}</h3>
+        {% if instrument.audio %}
+        <audio controls>
+          <source src="{{ url_for('root.mp3', score=score_name, instrument=instrument_name) }}" type="audio/mp3">
+        Your browser does not support the audio element.
+        </audio>
+       {% endif %}
+       {% if instrument.pdf %}
+        <p><embed src="{{ url_for('root.pdf', score=score_name, instrument=instrument_name)}}" 
+          download="{{ score_name }}-{{ instrument_name }}.pdf"></p>
+        <a href="{{ url_for('root.pdf', score=score_name, instrument=instrument_name)}}" 
+          download="{{ score_name }}-{{ instrument_name }}.pdf">
+         Download PDF
+       </a>
+       {% endif %}
+       {% if instrument.muse_file %}
+       &nbsp; &nbsp;
+        <a href="{{ url_for('root.mscz', score=score_name, instrument=instrument_name)}}" 
+           download="{{ score_name }}-{{ instrument_name }}.mscz">
+        Muse File
+        </a>
+       {% endif %}
+      {% endfor %}
+
+  </body>
+</html>

@@ -1,7 +1,7 @@
 import pprint
 from pathlib import Path
 
-from flask import Blueprint, Response, g
+from flask import Blueprint, Response, g, request
 from flask import current_app as app
 from flask import render_template
 
@@ -13,12 +13,30 @@ bp = Blueprint("root", __name__)
 def before_request():
     g.scores = get_scores(Path(app.config['DATA_DIR']))
 
-@bp.route("/")
+@bp.route("/list")
+def list():
+    return render_template(
+        "list.html", 
+        scores=g.scores)
+
+@bp.route("/", methods=("GET", "POST")) #base page, search
 def index():
-    app.logger.warning("loading index.html")
+    if request.method == "POST":
+        query = request.form["search"]
+
+        matches = []
+        for name, score in g.scores.items():
+            title = score.metadata.title
+            if query.lower() in title.lower():
+                matches.append((name, score))
+    else:
+        matches = []
+
+
     return render_template(
         "index.html", 
-        scores=g.scores)
+        scores=g.scores,
+        matches=matches)
 
 @bp.route("/mp3/<score>/<instrument>")
 def mp3(score, instrument):
@@ -53,6 +71,17 @@ def mscz(score, instrument):
     filepath = g.scores[score].instruments[instrument].muse_file
     with open(filepath, "rb") as fmuse:
         return Response(fmuse.read(), mimetype="application/x-musescore")
+
+@bp.route("/view/<score>")
+def view(score):
+    # list scores and find the path to the 
+    # audio file for this score and instrument
+    score_obj = g.scores[score]
+    return render_template(
+        "view.html", 
+        score=score_obj,
+        score_name=score)
+    
 
 # @bp.route("/foo/<myvariable>")
 # def foo(myvariable):
