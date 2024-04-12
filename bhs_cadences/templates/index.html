@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Ballard Cadences</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  </head>
-  <body class="message">
-    <h1>Search for a BHS cadence</h1>
 
-    <!-- a form for entering a search term with a button to submit  -->
-    <form action="/" method="POST">
-      <input type="text" name="search" required="true">
-      <input type="submit" value="Search">
-    </form>
+{% extends 'base.html' %}
 
-    {% if matches %}
+{% block content %}
+<!-- a form for entering a search term with a button to submit  -->
+<form action="/" method="POST">
+  <input type="text" name="search" required="true">
+  <input type="submit" value="Search">
+</form>
 
-    <ul>
-    {% for name, score in matches %}
-      <li><a href="{{ url_for('root.view', score=name) }}">{{ score.metadata.title }}</a></li>
-    {% endfor %}
-    </ul>
+{% if matches %}
 
-    {% endif %}
+<ul>
+{% for name, score in matches %}
+  <li><a href="{{ url_for('root.view', score=name) }}">{{ score.metadata.title }}</a></li>
+{% endfor %}
+</ul>
 
-  </body>
-</html>
+{% endif %}
+{% endblock %}
+

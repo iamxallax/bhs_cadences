@@ -17,6 +17,7 @@ def before_request():
 def list():
     return render_template(
         "list.html", 
+        title="List of BHS Cadences",
         scores=g.scores)
 
 @bp.route("/", methods=("GET", "POST")) #base page, search
@@ -35,6 +36,7 @@ def index():
 
     return render_template(
         "index.html", 
+        title="Search for a BHS Cadence",
         scores=g.scores,
         matches=matches)
 
@@ -72,15 +74,16 @@ def mscz(score, instrument):
     with open(filepath, "rb") as fmuse:
         return Response(fmuse.read(), mimetype="application/x-musescore")
 
-@bp.route("/view/<score>")
-def view(score):
+@bp.route("/view/<score_name>")
+def view(score_name):
     # list scores and find the path to the 
     # audio file for this score and instrument
-    score_obj = g.scores[score]
+    score = g.scores[score_name]
     return render_template(
         "view.html", 
-        score=score_obj,
-        score_name=score)
+        title=score.metadata.title,
+        score=score,
+        score_name=score_name)
     
 
 # @bp.route("/foo/<myvariable>")

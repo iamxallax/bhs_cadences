@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ballard Cadences</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body class="message">
+    <h1>{{ title }}</h1>
+
+    {% block content %}{% endblock %}
+
+  </body>
+</html>

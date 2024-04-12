@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Ballard Cadences</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  </head>
-  <body class="message">
-    <h1>List of BHS cadences</h1>
+{% extends 'base.html' %}
 
+{% block content %}
     {% for score_name, score in scores.items() %}
       <h2>{{ score.metadata.title }}</h2>
       {% for instrument_name, instrument in score.instruments.items() %}
@@ -36,5 +29,4 @@
       {% endfor %}
     {% endfor %}
 
-  </body>
-</html>
+{% endblock %}
