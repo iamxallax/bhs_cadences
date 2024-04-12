@@ -2,31 +2,7 @@
 
 {% block content %}
     {% for score_name, score in scores.items() %}
-      <h2>{{ score.metadata.title }}</h2>
-      {% for instrument_name, instrument in score.instruments.items() %}
-        <h3>{{ instrument.name }}</h3>
-        {% if instrument.audio %}
-        <audio controls>
-          <source src="{{ url_for('root.mp3', score=score_name, instrument=instrument_name) }}" type="audio/mp3">
-        Your browser does not support the audio element.
-        </audio>
-       {% endif %}
-       {% if instrument.pdf %}
-        <p><embed src="{{ url_for('root.pdf', score=score_name, instrument=instrument_name)}}" 
-          download="{{ score_name }}-{{ instrument_name }}.pdf"></p>
-        <a href="{{ url_for('root.pdf', score=score_name, instrument=instrument_name)}}" 
-          download="{{ score_name }}-{{ instrument_name }}.pdf">
-         Download PDF
-       </a>
-       {% endif %}
-       {% if instrument.muse_file %}
-       &nbsp; &nbsp;
-        <a href="{{ url_for('root.mscz', score=score_name, instrument=instrument_name)}}" 
-           download="{{ score_name }}-{{ instrument_name }}.mscz">
-        Muse File
-        </a>
-       {% endif %}
-      {% endfor %}
+      {% include '_view_score.html' %}
     {% endfor %}
 
 {% endblock %}
