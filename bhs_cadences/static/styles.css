@@ -1,5 +1,77 @@
-.message {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 18px;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Flex Container for Responsive Layout */
+  .container {
+    width: 100%;
+    max-width: 1140px; /* You can adjust this value */
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Example of a flexible column */
+  .column {
+    flex: 1;
     padding: 10px;
-    font-size: 1.3em;
-    font-family: Arial, sans-serif;
-}
+  }
+  
+  /* Responsive Typography */
+  @media (hover: none) {
+    body {
+      font-size: 30px;
+    }
+  
+    /* Adjusting Layout for Smaller Screens */
+    .container {
+      flex-direction: column;
+    }
+
+    input[type="text"] {
+        font-size: 20px; /* Makes text inside bigger */
+        padding: 10px 20px; /* Adds space inside, around the text */
+        width: 300px; /* Adjust width as needed */
+        height: 50px; /* Adjust height as needed */
+      }
+
+      input[type="submit"] {
+        font-size: 20px; /* Makes text inside bigger */
+        padding: 10px 20px; /* Adds space inside, around the text */
+        width: 100px; /* Adjust width as needed */
+        height: 50px; /* Adjust height as needed */
+      }
+
+  }
+
+  .navbar {
+    background-color: #C91919;
+    overflow: hidden;
+  }
+  
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+  .navbar a:hover {
+    background-color: black;
+    color: white;
+  }

@@ -81,7 +81,6 @@ def view(score_name):
     score = g.scores[score_name]
     return render_template(
         "view.html", 
-        title=score.metadata.title,
         score=score,
         score_name=score_name)
     

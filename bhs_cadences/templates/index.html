@@ -12,7 +12,7 @@
 
 <ul>
 {% for name, score in matches %}
-  <li><a href="{{ url_for('root.view', score=name) }}">{{ score.metadata.title }}</a></li>
+  <li><a href="{{ url_for('root.view', score_name=name) }}">{{ score.metadata.title }}</a></li>
 {% endfor %}
 </ul>
 

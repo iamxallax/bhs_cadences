@@ -6,9 +6,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body class="message">
+    <div class="container">
+      <div class="column">
+
+        <div class="navbar">
+          <a href="{{ url_for('root.index') }}">Home</a>
+          <a href="{{ url_for('root.list') }}">List</a>
+        </div>
+        
+    {% if title %}
     <h1>{{ title }}</h1>
-
+    {% endif %}
     {% block content %}{% endblock %}
-
+</div>
+</div>
   </body>
 </html>
