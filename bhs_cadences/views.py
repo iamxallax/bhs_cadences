@@ -11,7 +11,10 @@ bp = Blueprint("root", __name__)
 
 @bp.before_request
 def before_request():
-    g.scores = get_scores(Path(app.config['DATA_DIR']))
+    if data_dir := app.config.get('DATA_DIR', ''):
+        g.scores = get_scores(Path(data_dir))
+    else:
+        g.scores = {}
 
 @bp.route("/list")
 def list():
