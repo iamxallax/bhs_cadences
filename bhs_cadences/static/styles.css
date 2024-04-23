@@ -14,6 +14,10 @@
     max-width: 100%;
     height: auto;
   }
+
+  br {
+    line-height: 5px;
+  }
   
   /* Flex Container for Responsive Layout */
   .container {
@@ -24,7 +28,42 @@
     display: flex;
     flex-wrap: wrap;
   }
-  
+
+  h1 { 
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+  .search-form {
+    display: flex;
+    align-items: center; /* Align items vertically */
+  }
+
+/* make text input bigger: */
+input[type="text"] {
+    font-size: 30px; /* Makes text inside bigger */
+    padding: 5px 10px; /* Adds space inside, around the text */
+    width: 300px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border-color: #C91919;
+    border-radius: 10px;
+    outline: none;
+  }
+  input[type="submit"] {
+    font-size: 20px; /* Makes text inside bigger */
+    padding: 10px 10px; /* Adds space inside, around the text */
+    width: 90px; /* Adjust width as needed */
+    height: 40; /* Adjust height as needed */
+    color: white;
+    background-color: #C91919;
+    border-radius: 10px;
+    outline: none;
+  }
+
   /* Example of a flexible column */
   .column {
     flex: 1;
@@ -57,10 +96,10 @@
       }
 
   }
-
   .navbar {
     background-color: #C91919;
     overflow: hidden;
+    margin-bottom: 20px;
   }
 
   .navbar a {

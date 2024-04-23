@@ -3,9 +3,15 @@
 
 {% block content %}
 <!-- a form for entering a search term with a button to submit  -->
+<!-- align the text input with the button -->
+
+
+
 <form action="/" method="POST">
-  <input type="text" name="search" required="true">
-  <input type="submit" value="Search">
+  <div class="search-form">
+  <input type="text" name="search" required="true" placeholder="Search for a Cadence">
+  <input type="submit" value="Search" autofocus>
+  </div>
 </form>
 
 {% if matches %}

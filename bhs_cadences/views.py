@@ -86,6 +86,16 @@ def view(score_name):
         "view.html", 
         score=score,
         score_name=score_name)
+
+@bp.route("/about")
+def about():
+    # list scores and find the path to the 
+    # audio file for this score and instrument
+    return render_template(
+        "about.html",
+        author="Aaron",
+        email="ballardcadences@xallax.wtf",
+        title="About")
     
 
 # @bp.route("/foo/<myvariable>")

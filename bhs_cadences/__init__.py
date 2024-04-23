@@ -21,8 +21,10 @@ def create_app(config_overrides=None):
     app.register_blueprint(views.bp)
     app.register_blueprint(commands.bp)
 
-    for var in ['DATA_DIR']:
-        app.config[var] = os.environ.get(var)
+    app.config['DATA_DIR'] = 'data'
+
+    # for var in ['DATA_DIR']:
+    #     app.config[var] = os.environ.get(var)
 
     return app
 

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>
+    This site is a collection of BHS cadences that have been played over the years. The intention of this website is to provide easy access to the pdfs and audio files for these cadences.
+
+    To get started, go to the <a href="{{ url_for('root.index') }}">home</a> page.
+</p>
+&nbsp;
+<h2>
+    About the author:
+</h2>
+<p>
+    <ul>
+        <li>Author: {{ author }}</li>
+        <li>Email: {{ email }}</li>
+        <li>Form: <a href="https://forms.office.com/r/VGp5gKdyjd">Take my Form!</a></li>
+    </ul>
+</p>
+
+{% endblock %}

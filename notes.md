@@ -97,4 +97,41 @@ Organization:
 Dict:
 - topsy (Score object)
   - snare (Instrument object)
-  
+
+
+## Creating the Volume:
+
+```
+fly volumes create data -r sea   
+```
+
+Create an archive of the data directory contents (`-C` enters the `data` directory).
+
+```
+tar -czvf data.tgz --exclude=.DS_Store -C data .
+```
+
+Before a data transfer make sure the machine is started:
+
+```
+fly machine start
+```
+
+Transfer the data dir contents.
+
+```
+flyctl ssh sftp shell
+>> put data.tgz workspace/data.tgz
+```
+
+Start a shell session in the running machine.
+
+```
+flyctl ssh console
+```
+
+Expand the contents of `data.tgz` into `workspace/data`
+
+```
+tar -xvf data.tgz -C data
+```
