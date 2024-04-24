@@ -16,15 +16,15 @@ def before_request():
     else:
         g.scores = {}
 
-@bp.route("/list")
+@bp.route("/")
 def list():
     return render_template(
         "list.html", 
         title="List of BHS Cadences",
         scores=g.scores)
 
-@bp.route("/", methods=("GET", "POST")) #base page, search
-def index():
+@bp.route("/search", methods=("GET", "POST")) #base page, search
+def search():
     if request.method == "POST":
         query = request.form["search"]
 
@@ -38,7 +38,7 @@ def index():
 
 
     return render_template(
-        "index.html", 
+        "search.html", 
         title="Search for a BHS Cadence",
         scores=g.scores,
         matches=matches)

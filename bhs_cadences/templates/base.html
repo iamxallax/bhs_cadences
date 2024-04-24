@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="robots" content="noindex">
     <!-- set icon for page: -->
-    <!-- <link rel="icon" href="https://bhs-cadences.fly.dev/icon.png"> -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='bhs.ico') }}">
     <title>Ballard Cadences</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
@@ -16,8 +16,8 @@
       <div class="column">
 
         <div class="navbar">
-          <a href="{{ url_for('root.index') }}">Home</a>
-          <a href="{{ url_for('root.list') }}">List</a>
+          <a href="{{ url_for('root.list') }}">Home</a>
+          <a href="{{ url_for('root.search') }}">Search</a>
           <a href="{{ url_for('root.about') }}">About</a>
         </div>
         
