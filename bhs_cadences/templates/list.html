@@ -2,7 +2,12 @@
 
 {% block content %}
     {% for score_name, score in scores.items() %}
-      {% include '_view_score.html' %}
+      <h2>
+        <details>
+          <summary><a href="{{ url_for('root.view', score_name=score_name) }}">{{ score.metadata.title }}</a></summary>
+          {% include '_view_score.html' %}
+        </details>
+      </h2>
     {% endfor %}
 
 {% endblock %}

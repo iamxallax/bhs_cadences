@@ -5,9 +5,7 @@
 <!-- a form for entering a search term with a button to submit  -->
 <!-- align the text input with the button -->
 
-
-
-<form action="/" method="POST">
+<form action="{{ url_for('root.search') }}" method="POST">
   <div class="search-form">
   <input type="text" name="search" required="true">
   <input type="submit" value="Search" autofocus>
