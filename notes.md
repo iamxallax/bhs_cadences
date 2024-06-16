@@ -98,12 +98,21 @@ Dict:
 - topsy (Score object)
   - snare (Instrument object)
 
+## deploying code changes
 
-## Creating the Volume:
+```
+flyctl deploy
+```
+
+## Creating the Volume
+
+This only needs to be done once
 
 ```
 fly volumes create data -r sea   
 ```
+
+## Updating scores
 
 Create an archive of the data directory contents (`-C` enters the `data` directory).
 
@@ -117,22 +126,24 @@ Before a data transfer make sure the machine is started:
 fly machine start
 ```
 
+Clean up old target file
+
+```
+flyctl ssh console --command 'rm -f data.tgz'
+```
+
 Transfer the data dir contents.
 
 ```
-flyctl ssh sftp shell
+flyctl ssh sftp shell 
 >> put data.tgz workspace/data.tgz
 ```
 
-Start a shell session in the running machine.
+Use crtl+C to exit ftp shell.
+
+Start a shell session in the running machine and 
+expand the contents of `data.tgz` into `workspace/data`
 
 ```
-flyctl ssh console
+flyctl ssh console --command 'tar -xvf data.tgz -C data'
 ```
-
-Expand the contents of `data.tgz` into `workspace/data`
-
-```
-tar -xvf data.tgz -C data
-```
-  

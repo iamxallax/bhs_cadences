@@ -8,7 +8,7 @@ Run the application:
 
     make run
 
-And open it in the browser at [http://localhost:5000/](http://localhost:5000/)
+And open it in the browser at [http://localhost:8000/](http://localhost:8000/)
 
 ## Prerequisites
 

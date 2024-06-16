@@ -2,7 +2,6 @@
 <ul>
 <li>{{ score.metadata.description }}</li>
 <li>Author: {{ score.metadata.author }}</li>
-<li>Date added to BHS: {{ score.metadata.date_added }}</li>
 </ul>
 {% for instrument_name, instrument in score.instruments.items() %}
   <h3>{{ instrument.name }}</h3>
