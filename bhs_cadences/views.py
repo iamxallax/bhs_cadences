@@ -96,7 +96,7 @@ def about():
         author="Aaron",
         email="ballardcadences@xallax.wtf",
         title="About")
-    
+
 
 # @bp.route("/foo/<myvariable>")
 # def foo(myvariable):
