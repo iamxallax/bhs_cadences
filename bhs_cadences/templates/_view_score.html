@@ -3,6 +3,7 @@
 <li>{{ score.metadata.description }}</li>
 <li>Author: {{ score.metadata.author }}</li>
 </ul>
+
 {% for instrument_name, instrument in score.instruments.items() %}
   <h3>{{ instrument.name }}</h3>
   {% if instrument.audio %}

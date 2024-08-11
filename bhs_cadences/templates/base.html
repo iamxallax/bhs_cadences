@@ -16,7 +16,9 @@
       <div class="column">
 
         <div class="navbar">
-          <a href="{{ url_for('root.list') }}">Home</a>
+          <a class="navbar-brand" href="{{ url_for('root.list') }}">
+            <img src="{{ url_for('static', filename='BPA.png') }}">
+          </a>
           <a href="{{ url_for('root.search') }}">Search</a>
           <a href="{{ url_for('root.about') }}">About</a>
         </div>

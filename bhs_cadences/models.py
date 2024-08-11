@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from pathlib import Path
 
-INSTRUMENTS = ["snare", "tenors", "cymbals", "bass"]
+INSTRUMENTS = ["full_score", "snare", "tenors", "cymbals", "bass"]
 
 @dataclass
 class Metadata:

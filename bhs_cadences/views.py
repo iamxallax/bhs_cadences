@@ -82,6 +82,8 @@ def view(score_name):
     # list scores and find the path to the 
     # audio file for this score and instrument
     score = g.scores[score_name]
+    import pprint
+    pprint.pprint(score)
     return render_template(
         "view.html", 
         score=score,
@@ -96,13 +98,3 @@ def about():
         author="Aaron",
         email="ballardcadences@xallax.wtf",
         title="About")
-
-
-# @bp.route("/foo/<myvariable>")
-# def foo(myvariable):
-
-#     return render_template(
-#         "foo.html",
-#         title="Foo!",
-#         myvariable=myvariable,
-#         config=pprint.pformat(sorted(list(app.config.items()))))
