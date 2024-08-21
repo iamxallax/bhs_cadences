@@ -117,7 +117,7 @@ fly volumes create data -r sea
 Create an archive of the data directory contents (`-C` enters the `data` directory).
 
 ```
-tar -czvf data.tgz --exclude=.DS_Store -C data .
+tar -czvf data.tgz --exclude=.DS_Store --exclude=.mscbackup -C data .
 ```
 
 Before a data transfer make sure the machine is started:
