@@ -5,6 +5,9 @@ __pycache__/
 venv/
 build/
 
+# ignore the tar archive of data files to be upoloaded
+data.tgz
+
 dist/
 *.egg-info/
 .pytest_cache/
