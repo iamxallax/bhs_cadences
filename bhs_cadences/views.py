@@ -95,6 +95,6 @@ def about():
     # audio file for this score and instrument
     return render_template(
         "about.html",
-        author="Aaron",
-        email="ballardcadences@xallax.wtf",
+        # author="Aaron",
+        # email="ballardcadences@xallax.wtf",
         title="About")
